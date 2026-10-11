@@ -110,3 +110,10 @@ cy.on("tap", "node", function (event) {
   document.getElementById("description").textContent =
     node.data("description");
 });
+
+const resizeObserver = new ResizeObserver(() => {
+  cy.resize();
+  cy.fit(undefined, 30);
+});
+
+resizeObserver.observe(document.getElementById("cy"));
