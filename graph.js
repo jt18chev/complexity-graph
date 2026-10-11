@@ -20,21 +20,30 @@ const classes = [
   },
   {
     data: {
-      id: "PSPACE",
-      label: "PSPACE",
+      id: "Co-NP",
+      label: "Co-NP",
       description:
-        "Decision problems solvable using polynomial space."
+        "Decision problems whose compliment is in NP."
     },
     position: { x: 150, y: 340 }
   },
   {
     data: {
-      id: "EXPTIME",
-      label: "EXPTIME",
+      id: "EXP",
+      label: "EXP",
       description:
         "Decision problems solvable in deterministic exponential time."
     },
     position: { x: 400, y: 430 }
+  },
+  {
+    data: {
+      id: "NEXP",
+      label: "NEXP",
+      description:
+        "Decision problems solvable in non-deterministic exponential time."
+    },
+    position: { x: 550, y: 300 }
   }
 ];
 
@@ -43,10 +52,19 @@ const relationships = [
     data: { source: "P", target: "NP", label: "subset" }
   },
   {
-    data: { source: "NP", target: "PSPACE", label: "subset" }
+    data: { source: "P", target: "Co-NP", label: "subset" }
   },
   {
-    data: { source: "PSPACE", target: "EXPTIME", label: "subset" }
+    data: { source: "NP", target: "EXP", label: "subset" }
+  },
+  {
+    data: { source: "Co-NP", target: "EXP", label: "subset" }
+  },
+  {
+    data: { source: "EXP", target: "NEXP", label: "subset" }
+  },
+  {
+    data: { source: "NP", target: "Co-NP", label: "?" }, classes: "undirected"
   }
 ];
 
@@ -54,7 +72,7 @@ const cy = cytoscape({
   container: document.getElementById("cy"),
 
   elements: [...classes, ...relationships],
-
+  wheelSensitivity: 2,
   style: [
     {
       selector: "node",
@@ -83,6 +101,15 @@ const cy = cytoscape({
         "text-background-color": "#ffffff",
         "text-background-opacity": 1,
         "text-background-padding": 3
+      }
+    },
+    {
+      selector: "edge.undirected",
+      style: {
+        "source-arrow-shape": "none",
+        "target-arrow-shape": "none",
+        "line-color": "#8593a7",
+        "width": 2
       }
     },
     {
