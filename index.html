@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Complexity Class Explorer</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #f7f8fa;
+      color: #202938;
+    }
+
+    #cy {
+      height: 600px;
+      width: 100%;
+      background: white;
+      border: 1px solid #d8dee8;
+      border-radius: 10px;
+    }
+
+    #details {
+      margin-top: 16px;
+      padding: 16px;
+      background: white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Complexity Class Explorer</h1>
+  <p>Click a class to learn more about it.</p>
+
+  <div id="cy"></div>
+
+  <section id="details">
+    <h2>Class details</h2>
+    <p id="description">Select a node in the graph.</p>
+  </section>
+
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <script src="graph.js"></script>
+</body>
+</html>
