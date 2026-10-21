@@ -13,6 +13,11 @@ const newClasses =  {
           target: "Co-NP",
           type: "subset",
           directed: true
+        },
+        {
+          target: "P/Poly",
+          type: "strict subset",
+          directed: true
         }
       ]
     },
@@ -20,12 +25,17 @@ const newClasses =  {
       description: "Decision problems whose yes-instances have polynomial-size certificates verifiable in polynomial time.",
       relationships: [
         {
-          target: "PSPACE",
+          target: "PH",
           type: "subset",
           directed: true
         },
         {
           target: "Co-NP",
+          type: "???",
+          directed: false
+        },
+        {
+          target: "P/Poly",
           type: "???",
           directed: false
         }
@@ -35,7 +45,32 @@ const newClasses =  {
       description: "Decision problems whose compliment is in NP.",
       relationships: [
         {
-          target: "PSPACE",
+          target: "PH",
+          type: "subset",
+          directed: true
+        }
+      ]
+    },
+    "PH": {
+      description: "A hierarchy of classes that generalizes NP and Co-NP",
+      relationships: [
+        {
+        target: "PSPACE",
+        type: "subset",
+        directed: true
+        }
+      ]
+    },
+    "PSPACE": {
+      description: "Decision problems solvable by a Turing machine using a polynomial amount of space.",
+      relationships: [
+        {
+          target: "NPSPACE",
+          type: "equal",
+          directed: false
+        },
+        {
+          target: "EXP",
           type: "subset",
           directed: true
         }
@@ -48,25 +83,21 @@ const newClasses =  {
           target: "NEXP",
           type: "subset",
           directed: true
+        },
+        {
+          target: "P/Poly",
+          type: "???",
+          directed: false
         }
       ]
     },
     "NEXP": {
       description: "Decision problems solvable in non-deterministic exponential time.",
-      relationships: []
-    },
-    "PSPACE": {
-      description: "Decision problems solvable by a Turing machine using a polynomial amount of space.",
       relationships: [
         {
-          target: "NPSPACE",
-          type: "equals",
+          target: "P/Poly",
+          type: "???",
           directed: false
-        },
-        {
-          target: "EXP",
-          type: "subset",
-          directed: true
         }
       ]
     },
@@ -91,6 +122,35 @@ const newClasses =  {
           target: "P",
           type: "subset",
           directed: true
+        },
+        {
+          target: "NC",
+          type: "subset",
+          directed: true
+        }
+      ]
+    },
+    "P/Poly": {
+      description: "Decision problems solvable by polynomial-sized circuit families. Includes problems that are undecidable by TMs.",
+      relationships: []
+    },
+    "NC": {
+      description: "Decision problems solvable by polynomial-sized circuit families with polylogarithmic depth.",
+      relationships: [
+        {
+          target: "P",
+          type: "subset",
+          directed: true
+        }
+      ]
+    },
+    "AC": {
+      description: "Decision problems solvable by polynomial-sized circuit families with polylogarithmic depth where gates have unbounded fan-in.",
+      relationships: [
+        {
+          target: "NC",
+          type: "equal",
+          directed: false
         }
       ]
     }
