@@ -36,16 +36,20 @@ const newClasses = {
         type: "subset",
         directed: true
       },
+      /*
       {
         target: "Co-NP",
         type: "???",
         directed: false
       },
-      {
-        target: "P/Poly",
-        type: "???",
-        directed: false
-      }
+      */
+      /*
+       {
+         target: "P/Poly",
+         type: "???",
+         directed: false
+       }
+         */
     ]
   },
   "Co-NP": {
@@ -95,22 +99,26 @@ const newClasses = {
         type: "subset",
         directed: true
       },
+      /*
       {
         target: "P/Poly",
         type: "???",
         directed: false
       }
+*/
     ]
   },
   "NEXP": {
     description: "Decision problems solvable in non-deterministic exponential time.",
     category: "time",
     relationships: [
+      /*
       {
         target: "P/Poly",
         type: "???",
         directed: false
       }
+        */
     ]
   },
   "NPSPACE": {
@@ -235,11 +243,13 @@ const newClasses = {
     description: "Decision problems solvable by a probabilistic TM in logarithmic space with probability >= 2/3",
     category: "randomized",
     relationships: [
+      /*
       {
         target: "P",
         type: "subset",
         directed: true
       },
+      */
       {
         target: "L",
         type: "UNCONFIRMED equal",
@@ -251,16 +261,20 @@ const newClasses = {
     description: "Decision problems solvable by a probabilistic TM in logarithmic space that correctly rejects with probability 1 and correctly accepts with probability > 1/2.",
     category: "randomized",
     relationships: [
+      /*
       {
         target: "P",
         type: "subset",
         directed: true
       },
+      */
+     /*
       {
         target: "NL",
         type: "subset",
         directed: true
       },
+      */
       {
         target: "L",
         type: "UNCONFIRMED equal",
