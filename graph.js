@@ -166,7 +166,14 @@ const newClasses = {
         target: "P",
         type: "subset",
         directed: true
+      },
+      /*
+      {
+        target: "P/Poly",
+        type: "subset",
+        directed: true
       }
+        */
     ]
   },
   "AC": {
@@ -280,11 +287,13 @@ const newClasses = {
         type: "UNCONFIRMED equal",
         directed: false
       },
+      /*
       {
         target: "BPL",
         type: "UNCONFIRMED equal",
         directed: false
       }
+        */
     ]
   },
   "IP": {
@@ -435,10 +444,28 @@ const cy = cytoscape({
     name: "fcose",
     quality: "default",
     animate: true,
+    randomize: true,
     fit: true,
     padding: 40,
+    /*
     nodeRepulsion: () => 8000,
     idealEdgeLength: () => 200,
+    */
+
+    nodeRepulsion: (node) => {
+    const degree = node.degree();
+    return 3000 + degree * 2500;
+  },
+
+  idealEdgeLength: (edge) => {
+    const sourceDegree = edge.source().degree();
+    const targetDegree = edge.target().degree();
+    const maxDegree = Math.max(sourceDegree, targetDegree);
+    //const maxDegree = sourceDegree + targetDegree;
+
+    return 40 + maxDegree * 15;
+  },
+  
     gravity: 0.2
   },
 
