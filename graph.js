@@ -268,13 +268,13 @@ const newClasses = {
         directed: true
       },
       */
-     /*
-      {
-        target: "NL",
-        type: "subset",
-        directed: true
-      },
-      */
+      /*
+       {
+         target: "NL",
+         type: "subset",
+         directed: true
+       },
+       */
       {
         target: "L",
         type: "UNCONFIRMED equal",
@@ -284,6 +284,39 @@ const newClasses = {
         target: "BPL",
         type: "UNCONFIRMED equal",
         directed: false
+      }
+    ]
+  },
+  "IP": {
+    description: "Decision problems solvable by an interactive proof system with a probabilistic verifier and an all-powerful prover.",
+    category: "randomized",
+    relationships: [
+      {
+        target: "PSPACE",
+        type: "equal",
+        directed: false
+      }
+    ]
+  },
+  "AM": {
+    description: "Decision problems solvable by an interactive proof system with a probabilistic verifier and an all-powerful prover, where the verifier sends random bits to the prover.",
+    category: "randomized",
+    relationships: [
+      {
+        target: "IP",
+        type: "subset",
+        directed: true
+      }
+    ]
+  },
+  "MA": {
+    description: "Decision problems solvable by an interactive proof system with a probabilistic verifier and an all-powerful prover, where the prover sends a message to the verifier first.",
+    category: "randomized",
+    relationships: [
+      {
+        target: "AM",
+        type: "subset",
+        directed: true
       }
     ]
   }
