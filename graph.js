@@ -205,6 +205,11 @@ const newClasses = {
         target: "PH",
         type: "subset",
         directed: true
+      },
+      {
+        target: "BQP",
+        type: "subset",
+        directed: true
       }
     ]
   },
@@ -324,6 +329,17 @@ const newClasses = {
     relationships: [
       {
         target: "AM",
+        type: "subset",
+        directed: true
+      }
+    ]
+  },
+  "BQP": {
+    description: "Decision problems solvable by a quantum computer in polynomial time with bounded error.",
+    category: "quantum",
+    relationships: [
+      {
+        target: "PSPACE",
         type: "subset",
         directed: true
       }
